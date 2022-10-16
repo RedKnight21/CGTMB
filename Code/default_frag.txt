@@ -1,0 +1,142 @@
+2022-05-03 20:31:53.073 (  18.019s) [         DA59400]   vtkShaderProgram.cxx:452    ERR| vtkShaderProgram (0x4216f90): 1: crap_textSystem::Dec
+2: 
+3: /*=========================================================================
+4: 
+5:   Program:   Visualization Toolkit
+6:   Module:    vtkPolyDataFS.glsl
+7: 
+8:   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
+9:   All rights reserved.
+10:   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+11: 
+12:      This software is distributed WITHOUT ANY WARRANTY; without even
+13:      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+14:      PURPOSE.  See the above copyright notice for more information.
+15: 
+16: =========================================================================*/
+17: // Template for the polydata mappers fragment shader
+18: 
+19: uniform int PrimitiveIDOffset;
+20: 
+21: 
+22: 
+23: // VC position of this fragment
+24: in vec4 vertexVCVSOutput;
+25: 
+26: // Camera prop
+27: uniform int cameraParallel;
+28: 
+29: 
+30: // optional color passed in from the vertex shader, vertexColor
+31: uniform float ambientIntensity; // the material ambient
+32: uniform float diffuseIntensity; // the material diffuse
+33: uniform float opacityUniform; // the fragment opacity
+34: uniform vec3 ambientColorUniform; // ambient color
+35: uniform vec3 diffuseColorUniform; // diffuse color
+36: uniform float specularIntensity; // the material specular intensity
+37: uniform vec3 specularColorUniform; // intensity weighted color
+38: uniform float specularPowerUniform;
+39: 
+40: 
+41: // optional surface normal declaration
+42: //VTK::Normal::Dec
+43: uniform mat3 normalMatrix;
+44: in vec3 normalVCVSOutput;
+45: 
+46: // extra lighting parameters
+47: uniform vec3 lightColor0;
+48: 
+49: 
+50: // Texture maps
+51: //VTK::TMap::Dec
+52: 
+53: // Texture coordinates
+54: //VTK::TCoord::Dec
+55: 
+56: // picking support
+57: //VTK::Picking::Dec
+58: 
+59: // Depth Peeling Support
+60: //VTK::DepthPeeling::Dec
+61: 
+62: // clipping plane vars
+63: uniform int numClipPlanes;
+64: in float clipDistancesVSOutput[6];
+65: 
+66: // the output of this shader
+67: out vec4 fragOutput0;
+68: 
+69: 
+70: // Apple Bug
+71: //VTK::PrimID::Dec
+72: 
+73: // handle coincident offsets
+74: //VTK::Coincident::Dec
+75: 
+76: // Value raster
+77: //VTK::ValuePass::Dec
+78: 
+79: // surface with edges
+80: //VTK::Edges::Dec
+81: 
+82: void main()
+83: {
+84:   // VC position of this fragment. This should not branch/return/discard.
+85:   vec4 vertexVC = vertexVCVSOutput;
+86: 
+87:   // Place any calls that require uniform flow (e.g. dFdx) here.
+88:   //VTK::UniformFlow::Impl
+89: 
+90:   // Set gl_FragDepth here (gl_FragCoord.z by default)
+91:   //VTK::Depth::Impl
+92: 
+93:   // Early depth peeling abort:
+94:   //VTK::DepthPeeling::PreColor
+95: 
+96:   // Apple Bug
+97:   //VTK::PrimID::Impl
+98: 
+99:   for (int planeNum = 0; planeNum < numClipPlanes; planeNum++)
+100:     {
+101:     if (clipDistancesVSOutput[planeNum] < 0.0) discard;
+102:     }
+103: 
+104: 
+105:   //VTK::ValuePass::Impl
+106: 
+107:     vec3 specularColor = specularIntensity * specularColorUniform;
+108:   float specularPower = specularPowerUniform;
+109:   vec3 ambientColor = ambientIntensity * ambientColorUniform;
+110:   vec3 diffuseColor = diffuseIntensity * diffuseColorUniform;
+111:   float opacity = opacityUniform;
+112: 
+113: 
+114:   //VTK::Edges::Impl
+115: 
+116:   // Generate the normal if we are not passed in one
+117:   vec3 normalVCVSOutput = normalize(normalVCVSOutput);
+118:   if (gl_FrontFacing == false) { normalVCVSOutput = -normalVCVSOutput; }
+119: //VTK::Normal::Impl
+120: 
+121:     float df = max(0.0,normalVCVSOutput.z);
+122:   float sf = pow(df, specularPower);
+123:   vec3 diffuse = df * diffuseColor * lightColor0;
+124:   vec3 specular = sf * specularColor * lightColor0;
+125:   fragOutput0 = vec4(ambientColor + diffuse + specular, opacity);
+126:   //VTK::Light::Impl
+127: 
+128: 
+129:   //VTK::TCoord::Impl
+130: 
+131:   if (fragOutput0.a <= 0.0)
+132:     {
+133:     discard;
+134:     }
+135: 
+136:   //VTK::DepthPeeling::Impl
+137: 
+138:   //VTK::Picking::Impl
+139: 
+140:   // handle coincident offsets
+141:   //VTK::Coincident::Impl
+142: }

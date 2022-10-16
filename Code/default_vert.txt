@@ -1,0 +1,88 @@
+2022-05-04 17:48:53.678 (  16.633s) [        66B04400]   vtkShaderProgram.cxx:437    ERR| vtkShaderProgram (0x4a1b9c0): 1: crap_textSystem::Dec
+2: 
+3: /*=========================================================================
+4: 
+5:   Program:   Visualization Toolkit
+6:   Module:    vtkPolyDataVS.glsl
+7: 
+8:   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
+9:   All rights reserved.
+10:   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+11: 
+12:      This software is distributed WITHOUT ANY WARRANTY; without even
+13:      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+14:      PURPOSE.  See the above copyright notice for more information.
+15: 
+16: =========================================================================*/
+17: 
+18: in vec4 vertexMC;
+19: 
+20: 
+21: 
+22: // frag position in VC
+23: out vec4 vertexVCVSOutput;
+24: 
+25: // optional normal declaration
+26: //VTK::Normal::Dec
+27: in vec3 normalMC;
+28: uniform mat3 normalMatrix;
+29: out vec3 normalVCVSOutput;
+30: 
+31: // extra lighting parameters
+32: //VTK::Light::Dec
+33: 
+34: // Texture coordinates
+35: //VTK::TCoord::Dec
+36: 
+37: // material property values
+38: //VTK::Color::Dec
+39: 
+40: // clipping plane vars
+41: uniform int numClipPlanes;
+42: uniform vec4 clipPlanes[6];
+43: out float clipDistancesVSOutput[6];
+44: 
+45: // camera and actor matrix values
+46: uniform mat4 MCDCMatrix;
+47: uniform mat4 MCVCMatrix;
+48: 
+49: // Apple Bug
+50: //VTK::PrimID::Dec
+51: 
+52: // Value raster
+53: //VTK::ValuePass::Dec
+54: 
+55: // picking support
+56: //VTK::Picking::Dec
+57: 
+58: void main()
+59: {
+60:   //VTK::CustomBegin::Impl
+61: 
+62:   //VTK::Color::Impl
+63: 
+64:   normalVCVSOutput = normalMatrix * normalMC;
+65: //VTK::Normal::Impl
+66: 
+67:   //VTK::TCoord::Impl
+68: 
+69:   for (int planeNum = 0; planeNum < numClipPlanes; planeNum++)
+70:     {
+71:     clipDistancesVSOutput[planeNum] = dot(clipPlanes[planeNum], vertexMC);
+72:     }
+73: 
+74: 
+75:   //VTK::PrimID::Impl
+76: 
+77:   vertexVCVSOutput = MCVCMatrix * vertexMC;
+78:   gl_Position = MCDCMatrix * vertexMC;
+79: 
+80: 
+81:   //VTK::ValuePass::Impl
+82: 
+83:   //VTK::Light::Impl
+84: 
+85:   //VTK::Picking::Impl
+86: 
+87:   //VTK::CustomEnd::Impl
+88: }

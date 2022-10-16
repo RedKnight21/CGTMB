@@ -1,0 +1,19 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource prefix="/Icons">
+    <!-- Typical file operations. -->
+    <file>fileopen.png</file>
+    <file>filesave.png</file>
+    <file>print.png</file>
+    <file>clipping_plane.gif</file>
+    <file>hearts8bit.png</file>
+    <file>vtk.png</file>
+    <file>beach.jpg</file>
+    <file>flashlight-64.png</file>
+    <file>camera-100.png</file>
+    <file>coordinate-system-50.png</file>
+
+    <!-- Help -->
+    <file>help.png</file>
+  </qresource>
+</RCC>

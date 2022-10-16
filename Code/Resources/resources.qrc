@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource prefix="/Resources">
+    <!-- Typical file operations. -->
+    <file>xgen_data.txt</file>
+    <file>elements.txt</file>
+  </qresource>
+</RCC>
