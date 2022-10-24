@@ -27,7 +27,7 @@ void SkdTree::printDebugSbox()
     }
 }
 // --------------------------------------------------------------------------------------------
-void SkdTree::createTree(vector<Point> &centroids)
+void SkdTree::createTree(std::vector<Point> &centroids)
 {
         // qDebug() << "size of centroids: " << centroids.size() << eBoxes.size();
         int num = number = centroids.size();
@@ -63,7 +63,7 @@ void SkdTree::createTree(vector<Point> &centroids)
             //fclose(fp);
 }                       // -- end createTree
 // --------------------------------------------------------------------------------------------
-    void SkdTree::buildBranch(vector<Point> &centroids, int &nextp, int ileft, int iright, int jnode)
+    void SkdTree::buildBranch(std::vector<Point> &centroids, int &nextp, int ileft, int iright, int jnode)
     {
             //qDebug() << "\n\nbuildBranch:: size of centroids: " << centroids.size() << eBoxes.size();
             unsigned char   localCutDir;
@@ -193,7 +193,7 @@ void SkdTree::createTree(vector<Point> &centroids)
 
     // ----------------------------------------------------------------------------------------
 
-        unsigned char SkdTree::find_centroid_coord_extremes(vector<Point> &centroids, int blow, int bupp)
+        unsigned char SkdTree::find_centroid_coord_extremes(std::vector<Point> &centroids, int blow, int bupp)
         {
             float           maxVal;
             float           minVal;
@@ -239,7 +239,7 @@ void SkdTree::createTree(vector<Point> &centroids)
 
         // ----------------------------------------------------------------------------------------
 
-        void SkdTree::sort_coordinates(vector<Point> &xyz, int coord, int center, int lindx, int rindx)
+        void SkdTree::sort_coordinates(std::vector<Point> &xyz, int coord, int center, int lindx, int rindx)
         {
             // Sort locatins relative to the median cut-point.  This will re-order the indexes
             // along coordinate coord so that center is >= those below and <= those above.

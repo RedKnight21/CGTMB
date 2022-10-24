@@ -1,6 +1,6 @@
 #include "rgbColors.h"
 
-void setRGBcolors(int maxColors, int numColors, vector<int> &r, vector<int> &g, vector<int> &b)
+void setRGBcolors(int maxColors, int numColors, std::vector<int> &r, std::vector<int> &g, std::vector<int> &b)
 {
   //
   //  Function to create a default color assignments for the numColors requested.
@@ -136,7 +136,7 @@ void setRGBcolors(int maxColors, int numColors, vector<int> &r, vector<int> &g, 
   delete [] xb;
 }                     // end setRGBcolors
 // ------------------------------------------------------------------------------------------------
-void setGrayScale(int maxColors, int numColors, vector<int> &r, vector<int> &g, vector<int> &b)
+void setGrayScale(int maxColors, int numColors, std::vector<int> &r, std::vector<int> &g, std::vector<int> &b)
 {
     if (numColors < 1)
     {
@@ -160,7 +160,7 @@ void setGrayScale(int maxColors, int numColors, vector<int> &r, vector<int> &g, 
     }
 }                       // end setGrayScale
 // ------------------------------------------------------------------------------------------------
-void setRampColors(int maxColors, int numColors, QColor lowColor, QColor hiColor, vector<double> &r, vector<double> &g, vector<double> &b)
+void setRampColors(int maxColors, int numColors, QColor lowColor, QColor hiColor, std::vector<double> &r, std::vector<double> &g, std::vector<double> &b)
 {
     double  red_step, green_step, blue_step;
     double  red_low,  green_low,  blue_low;

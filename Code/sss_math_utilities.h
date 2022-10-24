@@ -3,26 +3,23 @@
 #include <QtCore>
 #include <cmath>
 
-using namespace std;
-
 int matrixInverse3x3(float a[][3]);
 void matMult3(float a3x3[][3], float b3[], float result[]);
-int searchBins(double &x, vector<double> &array, int aSize);
-int binaryIntSearch(int value, vector<int> &array);
+int searchBins(double &x, std::vector<double> &array, int aSize);
+int binaryIntSearch(int value, std::vector<int> &array);
 void getRotatedPoint(double *ap1, double *ap2, double angle, double *oldPt, double *newPt);
 void rotatePoint(double &x, double &y, double &z, double phi, double theta);
 
 void calculateFaceNormal(double face[3][3], float fNorm[3]);
 
 
-double Max(vector<double> &x);
-double Min(vector<double> &x);
+double Max(std::vector<double> &x);
+double Min(std::vector<double> &x);
 double Max(double *x, int num);
 double Min(double *x, int num);
 double deter3x3(double (*matrx)[3]);
 
-string trim(string str);
-
+std::string trim(std::string str);
 
 double find1PentVolume(double (*pts)[6]);
 void   load1PentCoefArray(double *pts, double *coArray, int *indexes);

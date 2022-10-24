@@ -6,10 +6,8 @@
 #include <QtCore>
 #include <QColor>
 
-using namespace std;
-
-void setRGBcolors(int maxColors, int numColors, vector<int> &r, vector<int> &g, vector<int> &b);
-void setGrayScale(int maxColors, int numColors, vector<int> &r, vector<int> &g, vector<int> &b);
-void setRampColors(int maxColors, int nColorCount, QColor lowColor, QColor hiColor, vector<double> &r, vector<double> &g, vector<double> &b);
+void setRGBcolors(int maxColors, int numColors, std::vector<int> &r, std::vector<int> &g, std::vector<int> &b);
+void setGrayScale(int maxColors, int numColors, std::vector<int> &r, std::vector<int> &g, std::vector<int> &b);
+void setRampColors(int maxColors, int nColorCount, QColor lowColor, QColor hiColor, std::vector<double> &r, std::vector<double> &g, std::vector<double> &b);
 
 #endif // RGBCOLORS_H

@@ -45,29 +45,6 @@ sssBooleanOperationCheck::sssBooleanOperationCheck()
 sssBooleanOperationCheck::~sssBooleanOperationCheck() = default;
 
 //------------------------------------------------------------------------------
-void sssBooleanOperationCheck::SortPolyData(
-  vtkPolyData* input, vtkIdList* intersectionList, vtkIdList* unionList)
-{
-  int numCells = input->GetNumberOfCells();
-
-  vtkDoubleArray* distArray =
-    vtkArrayDownCast<vtkDoubleArray>(input->GetCellData()->GetArray("Distance"));
-
-  for (int cid = 0; cid < numCells; cid++)
-  {
-
-    if (distArray->GetValue(cid) > this->Tolerance)
-    {
-      unionList->InsertNextId(cid);
-    }
-    else
-    {
-      intersectionList->InsertNextId(cid);
-    }
-  }
-}
-
-//------------------------------------------------------------------------------
 int sssBooleanOperationCheck::RequestData(vtkInformation* vtkNotUsed(request),
   vtkInformationVector** inputVector, vtkInformationVector* outputVector)
 {

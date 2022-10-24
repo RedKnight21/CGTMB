@@ -7,8 +7,6 @@
 #include "umDataStructures.h"
 #include <sss_math_utilities.h>
 
-using namespace std;
-
 class AlignedBox
 {
     public:
@@ -19,18 +17,18 @@ class SkdTree
 {
     private:
         int             *mIndex;
-        vector<int>     nodesFound;
+        std::vector<int>     nodesFound;
         float           asign[2];
         float           gsign[4];
         FILE            *fp;
 
-        vector<UM_t1element> *t1elements;
-        vector<UM_p1element> *p1elements;
-        vector<UM_h1element> *h1elements;
-        vector<UM_t2element> *t2elements;
-        vector<UM_p2element> *p2elements;
-        vector<UM_h2element> *h2elements;
-        vector<UM_nodes>     *nodes;
+        std::vector<UM_t1element> *t1elements;
+        std::vector<UM_p1element> *p1elements;
+        std::vector<UM_h1element> *h1elements;
+        std::vector<UM_t2element> *t2elements;
+        std::vector<UM_p2element> *p2elements;
+        std::vector<UM_h2element> *h2elements;
+        std::vector<UM_nodes>     *nodes;
 
         void findNodeBox(Point &point, int node);
         bool isInside1stOrderHex(int hex, Point &point, Point &ghr, unsigned char eType, bool pFlag);
@@ -48,8 +46,8 @@ class SkdTree
         int           *linkp;
         AlignedBox    *sbox;
         unsigned char *cutDir;
-        vector<Bbox>  eBoxes;     // Bounding boxes for elements in this tree.
-        vector<int>   eType;
+        std::vector<Bbox>  eBoxes;     // Bounding boxes for elements in this tree.
+        std::vector<int>   eType;
 
         /*SkdTree(vector<UM_t1element> &t1, vector<UM_p1element> &p1, vector<UM_h1element> &h1,
                 vector<UM_t2element> &t2, vector<UM_p2element> &p2, vector<UM_h2element> &h2,
@@ -76,9 +74,9 @@ class SkdTree
             }
         } */
 
-        SkdTree(vector<UM_t1element> *t1, vector<UM_p1element> *p1, vector<UM_h1element> *h1,
-                vector<UM_t2element> *t2, vector<UM_p2element> *p2, vector<UM_h2element> *h2,
-                vector<UM_nodes>     *n,  int *ctN1, int *ctN2, int *elNum, int *adj)
+        SkdTree(std::vector<UM_t1element> *t1, std::vector<UM_p1element> *p1, std::vector<UM_h1element> *h1,
+                std::vector<UM_t2element> *t2, std::vector<UM_p2element> *p2, std::vector<UM_h2element> *h2,
+                std::vector<UM_nodes>     *n,  int *ctN1, int *ctN2, int *elNum, int *adj)
         {
             number   = 0;
             linkp    = NULL;
@@ -118,10 +116,10 @@ class SkdTree
         void printDebugLinkp();
         void printDebugCutDir();
         void printDebugSbox();
-        void createTree(vector<Point> &centroids);
-        void buildBranch(vector<Point> &centroids, int &nextp, int ileft, int iright, int jnode);
-        unsigned char find_centroid_coord_extremes(vector<Point> &centroids, int blow, int bupp);
-        void sort_coordinates(vector<Point> &xyz, int coord, int center, int lindx, int rindx);
+        void createTree(std::vector<Point> &centroids);
+        void buildBranch(std::vector<Point> &centroids, int &nextp, int ileft, int iright, int jnode);
+        unsigned char find_centroid_coord_extremes(std::vector<Point> &centroids, int blow, int bupp);
+        void sort_coordinates(std::vector<Point> &xyz, int coord, int center, int lindx, int rindx);
         int findInstanceElement(Point &point, Point &ghr, int &gEl, unsigned char &eType);
         int findInstanceElement(Point &point, Point &ghr, int &gEl, unsigned char &eType, bool pFlag);
         int getGlobalTypeElementNumber(int localEl, unsigned char &iType, unsigned char &eType);

@@ -314,7 +314,7 @@ int quart(int n, double *c, double *r4, int mm)
     double c1ov16 = 0.0625;
     double c1em10 = 1.0e-10;
     double c1em8  = 1.0e-8;
-    double pf = 2.0 * M_PI / 3.0;
+    double pf = 2.0 * acos(-1.0) / 3.0;
     double tp[16];
     double temp12, tmp12, tmptp5, tmpt5, x;
     int jj;
@@ -555,7 +555,7 @@ int quart(int n, double *c, double *r4, int mm)
 
 // ----------------------------------------------------------------------------
 void torus(int &nr4, double xxx, double yyy, double zzz, double *wt,
-           double *r4, vector<double> &bodyData)
+           double *r4, std::vector<double> &bodyData)
 {
     double uu[5], xx[5], tpp[6];
     double t1, t2, t3, pvh, wh, pvw, z0, ecentq, x;

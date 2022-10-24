@@ -74,9 +74,6 @@ typedef vtkSmartPointer<vtkActor> UMeshActors;
 typedef vtkSmartPointer<vtkUnstructuredGrid> UGrids;
 typedef vtkSmartPointer<vtkDataSetMapper> GridMappers;
 
-
-using namespace std;
-
 class BaseVtkWindow
 {
 	public:
@@ -90,9 +87,9 @@ class BaseVtkWindow
 
         void showOneZone(QVector<CGBodyBasics> *iNcgBodyBasics,
                          QVector<CGZoneOps>    *iNcgZoneOps,
-                         vector<double> *redF,
-                         vector<double> *greF,
-                         vector<double> *bluF, Bounds *inBounds);
+                         std::vector<double> *redF,
+                         std::vector<double> *greF,
+                         std::vector<double> *bluF, Bounds *inBounds);
 
         void makeDefaultView();
 
@@ -151,28 +148,28 @@ class BaseVtkWindow
 
         void updateBounds(double *bounds);
 
-        vector < vtkSmartPointer < sssBooleanOperationCheck >> checkBools;
-        vector < vtkSmartPointer < vtkPolyDataAlgorithm >> srcs;
-        vector < vtkSmartPointer < vtkBooleanOperationPolyDataFilter >> bools;
+        std::vector < vtkSmartPointer < sssBooleanOperationCheck >> checkBools;
+        std::vector < vtkSmartPointer < vtkPolyDataAlgorithm >> srcs;
+        std::vector < vtkSmartPointer < vtkBooleanOperationPolyDataFilter >> bools;
 
         MasterData *md;
         Bounds *mBounds;
 
     QVector<CGBodyBasics> *cgBodyBasics;
     QVector<CGZoneOps>    *cgZoneOps;
-    vector<double>        colorR;
-    vector<double>        colorG;
-    vector<double>        colorB;
-    vector<double>        ugridColorR;
-    vector<double>        ugridColorG;
-    vector<double>        ugridColorB;
-    vector<bool>          zoneDisplay;
-    vector<bool>          ugridDisplay;
+    std::vector<double>        colorR;
+    std::vector<double>        colorG;
+    std::vector<double>        colorB;
+    std::vector<double>        ugridColorR;
+    std::vector<double>        ugridColorG;
+    std::vector<double>        ugridColorB;
+    std::vector<bool>          zoneDisplay;
+    std::vector<bool>          ugridDisplay;
 
-    vector< vector<int>> zoneSpecs;
-    vector< vector<int>> codeZoneIn;
-    vector< vector<int>> codeZoneOr;
-    vector<int> numCodeZones;
+    std::vector< std::vector<int>> zoneSpecs;
+    std::vector< std::vector<int>> codeZoneIn;
+    std::vector< std::vector<int>> codeZoneOr;
+    std::vector<int> numCodeZones;
 
     int viewMode;
     int backFaceStyle;
@@ -211,9 +208,9 @@ class BaseVtkWindow
 
     vtkNew<vtkNamedColors> colors;
 
-    vector<ZoneMappers> zoneMappers;
-    vector<GridMappers> ugridMappers;
-    vector<UGrids> ugrids;
+    std::vector<ZoneMappers> zoneMappers;
+    std::vector<GridMappers> ugridMappers;
+    std::vector<UGrids> ugrids;
 
     bool goOrientationMarkerWidget;
     bool goCamOrientationWidget;

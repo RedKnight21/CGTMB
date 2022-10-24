@@ -189,7 +189,7 @@ int ReadFileAbaqus::readAbaqusFile(QString fileName, QString cPath, QString file
 
     // Tet faces
     tetFaces.clear();
-    vector<int> tmp;
+    std::vector<int> tmp;
     tmp.push_back(0);
     tmp.push_back(2);
     tmp.push_back(1);
@@ -649,7 +649,7 @@ void ReadFileAbaqus::processPartsInstances(QMap<QString, QString> &matElset)
     size_t      pos;
     UM_instance umi;
 
-    map<int, int> :: const_iterator ii;
+    std::map<int, int> :: const_iterator ii;
 
 
     for(size_t i=0; i<parts.size(); ++i)
@@ -659,9 +659,9 @@ void ReadFileAbaqus::processPartsInstances(QMap<QString, QString> &matElset)
 
         if (num < 0)
         {
-            cout << " >>>>> ERROR: Invalid material number: " << num << endl;
-            cout << " >>>>>        Material tag           : " << name.constData() << endl;
-            cout << " >>>>>        Processing parts into instances. \n\n";
+            std::cout << " >>>>> ERROR: Invalid material number: " << num << std::endl;
+            std::cout << " >>>>>        Material tag           : " << name.constData() << std::endl;
+            std::cout << " >>>>>        Processing parts into instances. \n\n";
         }
 
         parts[i].matNo = num;
@@ -716,8 +716,8 @@ int ReadFileAbaqus::findElsetNumber(const QString stringIn, const QString name, 
         num = s1.toInt();
         if (num < 0  ||  found < 0)
         {
-            cout << "\n >>>>> ERROR: Invalid " << name.toStdString() << " number for elset: "
-                 << stringIn.toStdString() << endl;
+            std::cout << "\n >>>>> ERROR: Invalid " << name.toStdString() << " number for elset: "
+                 << stringIn.toStdString() << std::endl;
         }
     }
     pos = found;
@@ -879,9 +879,9 @@ void ReadFileAbaqus::finishMaterials()
     //}
 
     int maxColors = 255;
-    vector<int> red(this->nMaterials);
-    vector<int> gre(this->nMaterials);
-    vector<int> blu(this->nMaterials);
+    std::vector<int> red(this->nMaterials);
+    std::vector<int> gre(this->nMaterials);
+    std::vector<int> blu(this->nMaterials);
     setRGBcolors(maxColors, this->nMaterials, red, gre, blu);
     // --------------------------------------------------------------
 
@@ -920,9 +920,9 @@ void ReadFileAbaqus::getInstanceInfo(QTextStream &in, QString lineIn)
 
     // Move to finish instances
     //int maxColors = 255;
-    //vector<int> red(this->nInstances);
-    //vector<int> gre(this->nInstances);
-    //vector<int> blu(this->nInstances);
+    //std::vector<int> red(this->nInstances);
+    //std::vector<int> gre(this->nInstances);
+    //std::vector<int> blu(this->nInstances);
     //setRGBcolors(maxColors, this->nInstances, red, gre, blu);
     // --------------------------------------------------------------
 
@@ -1644,7 +1644,7 @@ void ReadFileAbaqus::buildInstancesNew()
 
 
 // ------------------------------------------------------------------------------------------------
-void ReadFileAbaqus::data2File(QString name, vector<UM_node> &nodes,  vector<int> &vertices)
+void ReadFileAbaqus::data2File(QString name, std::vector<UM_node> &nodes,  std::vector<int> &vertices)
 {
     FILE *fp;
 
@@ -1853,9 +1853,9 @@ void ReadFileAbaqus::instanceColors()
     nInstances = instances.size();
 
     int maxColors = 255;
-    vector<int> red(nInstances);
-    vector<int> gre(nInstances);
-    vector<int> blu(nInstances);
+    std::vector<int> red(nInstances);
+    std::vector<int> gre(nInstances);
+    std::vector<int> blu(nInstances);
     setRGBcolors(maxColors, nInstances, red, gre, blu);
     // --------------------------------------------------------------
 
@@ -1871,7 +1871,7 @@ void ReadFileAbaqus::instanceColors()
 // ------------------------------------------------------------------------------------------------
 
 char ReadFileAbaqus::getPartNodes(QTextStream &in, int &countNode2, QString &lineOut,
-                                  vector<P_nodes> &pNodes, QMap<int, int> &nodeMap)
+                                  std::vector<P_nodes> &pNodes, QMap<int, int> &nodeMap)
 {
     QString     line;
     QStringList fields;
@@ -2294,7 +2294,7 @@ void ReadFileAbaqus::finalizeInstances()
     double  maxX, maxY, maxZ;
     double  xArray[20], yArray[20], zArray[20];
 
-    vector<double>  tempX, tempY, tempZ;
+    std::vector<double>  tempX, tempY, tempZ;
 
     //qDebug() << "* finalizeInstances * \t nInstances:" << nInstances;
 
@@ -3035,7 +3035,7 @@ void ReadFileAbaqus::getFaceNodes(short eType, int tEl, int face, int *nextNodes
 }
 
 // ------------------------------------------------------------------------------------------------
-short ReadFileAbaqus::getNNSides(int nSides, int element, vector<int> &NND, int *sides)
+short ReadFileAbaqus::getNNSides(int nSides, int element, std::vector<int> &NND, int *sides)
 {
     char    nZeros;
     int     n, k;
@@ -3052,7 +3052,7 @@ short ReadFileAbaqus::getNNSides(int nSides, int element, vector<int> &NND, int 
     return nZeros;
 }
 // ------------------------------------------------------------------------------------------------
-void ReadFileAbaqus::reOrderPentSides(short eType, short nSides, int elAdjst, int element, int *others, vector< vector<int> > &faces)
+void ReadFileAbaqus::reOrderPentSides(short eType, short nSides, int elAdjst, int element, int *others, std::vector< std::vector<int> > &faces)
 {
     bool fFlag;
     int i, j, k, f;
@@ -3147,7 +3147,7 @@ void ReadFileAbaqus::reOrderPentSides(short eType, short nSides, int elAdjst, in
     }
 }
 // ------------------------------------------------------------------------------------------------
-void ReadFileAbaqus::reOrderHexSides(short eType, short nSides, int elAdjst, int element, int *others, vector< vector<int> > &faces)
+void ReadFileAbaqus::reOrderHexSides(short eType, short nSides, int elAdjst, int element, int *others, std::vector< std::vector<int> > &faces)
 {
     bool fFlag;
     int i, j, k, f;
@@ -3291,8 +3291,8 @@ void ReadFileAbaqus::makeInstanceTrees()
 {
     int             i, j, k, n;
     int             eBegin, eEnd;
-    vector<Point>   centroids;    // Centroids for the elements.
-    //vector<Bbox>    eBoxes;       // Bounding boxes for the elements.
+    std::vector<Point>   centroids;    // Centroids for the elements.
+    //std::vector<Bbox>    eBoxes;       // Bounding boxes for the elements.
     Point           pt;
     Bbox            b;
 

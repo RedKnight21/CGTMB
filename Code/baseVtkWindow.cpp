@@ -390,8 +390,8 @@ void BaseVtkWindow::checkCellBooleanOperations(QVector<CGZoneOps>  *cgZoneOpsLoc
     int k1;
     int action;
 
-    vector<int> or_info;
-    vector<int> in_info;
+    std::vector<int> or_info;
+    std::vector<int> in_info;
 
 
     i1 = 0;
@@ -429,7 +429,7 @@ void BaseVtkWindow::checkCellBooleanOperations(QVector<CGZoneOps>  *cgZoneOpsLoc
 
     QVector<CGZoneOps> workingOps;
 
-    vector<int> check;
+    std::vector<int> check;
 
     int start = 0;
     for (int i=0; i<nCodeZones; ++i)
@@ -563,7 +563,7 @@ void BaseVtkWindow::checkCellBooleanOperations(QVector<CGZoneOps>  *cgZoneOpsLoc
 void BaseVtkWindow::makeZoneMappersBoolean(QVector<CGZoneOps>  *cgZoneOpsLocal, QColor &color,
                                            const int cell, const bool display)
 {
-    vector < vtkSmartPointer < vtkPolyData >> maps;
+    std::vector < vtkSmartPointer < vtkPolyData >> maps;
     QVector<CGZoneOps> workingOps;
 
     double b[6];
@@ -716,9 +716,9 @@ void BaseVtkWindow::makeZoneMappersBoolean(QVector<CGZoneOps>  *cgZoneOpsLocal, 
 // ----------------------------------------------------------------------------
 void BaseVtkWindow::showOneZone(QVector<CGBodyBasics>   *iNcgBodyBasics,
                                 QVector<CGZoneOps>      *iNcgZoneOps,
-                                vector<double> *redF,
-                                vector<double> *greF,
-                                vector<double> *bluF,
+                                std::vector<double> *redF,
+                                std::vector<double> *greF,
+                                std::vector<double> *bluF,
                                 Bounds *inBounds)
 {
     cgBodyBasics = iNcgBodyBasics;
@@ -883,7 +883,7 @@ void BaseVtkWindow::makeZoneMappersBoolean(QVector<CGZoneOps>  *cgZoneOpsLocal)
 
     checkCellBooleanOperations2(cgZoneOpsLocal);
 
-    vector < vtkSmartPointer < vtkPolyData >> maps;
+    std::vector < vtkSmartPointer < vtkPolyData >> maps;
 
     int start = 0;
     for (int i=0; i<numCodeZones[0]; ++i)
@@ -1012,8 +1012,8 @@ void BaseVtkWindow::checkCellBooleanOperations2(QVector<CGZoneOps>  *cgZoneOpsLo
     int k1;
     int action;
 
-    vector<int> or_info;
-    vector<int> in_info;
+    std::vector<int> or_info;
+    std::vector<int> in_info;
     codeZoneIn.clear();
     codeZoneOr.clear();
     numCodeZones.clear();
@@ -1055,7 +1055,7 @@ void BaseVtkWindow::checkCellBooleanOperations2(QVector<CGZoneOps>  *cgZoneOpsLo
     QVector<CGZoneOps> workingOps;
 
     srcs.clear();
-    vector<int> check;
+    std::vector<int> check;
 
     int start = 0;
     for (int i=0; i<nCodeZones; ++i)
@@ -1220,7 +1220,7 @@ void BaseVtkWindow::userWarning(const int code, const int bodyNum)
 void BaseVtkWindow::makeBody(CGBodyBasics &body)
 {
     vtkAlgorithmOutput *va;
-    vector<double> *p;
+    std::vector<double> *p;
 
     int bt = body.bodyType;
     p = &body.parameters;

@@ -1194,7 +1194,7 @@ double  UMObject::eval1stOrderPentResults(int whichPlot, IsoPoint &isoGrid)
     return u;
 }
 // ------------------------------------------------------------------------------------------------
-void UMObject::findLineOutvalues(int pType, vector<IsoPoint> &lineOutData)
+void UMObject::findLineOutvalues(int pType, std::vector<IsoPoint> &lineOutData)
 {
     int  i;
     int  loSize;
@@ -1233,7 +1233,7 @@ void UMObject::findLineOutvalues(int pType, vector<IsoPoint> &lineOutData)
 }
 
 // ------------------------------------------------------------------------------------------------
-void UMObject::findAllPointValues(IsoPoint &thisData, vector<float> &results)
+void UMObject::findAllPointValues(IsoPoint &thisData, std::vector<float> &results)
 {
     int  i;
     bool iflag = false;
@@ -1272,7 +1272,7 @@ void UMObject::findAllPointValues(IsoPoint &thisData, vector<float> &results)
     }
 }           // -- end findAllPointValues
 // ------------------------------------------------------------------------------------------------
-void UMObject::processSectorPointValues(Point &pt, vector<float> &results, int &elNo, bool &isValid, bool pFlag)
+void UMObject::processSectorPointValues(Point &pt, std::vector<float> &results, int &elNo, bool &isValid, bool pFlag)
 {
     int             i;
     //int             elNo;

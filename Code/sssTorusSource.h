@@ -35,7 +35,7 @@
 #include "data_structs.h"
 
 
-class VTKFILTERSSOURCES_EXPORT sssTorusSource : public vtkPolyDataAlgorithm
+class  sssTorusSource : public vtkPolyDataAlgorithm
 {
 public:
 

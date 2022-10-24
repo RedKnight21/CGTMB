@@ -22,8 +22,6 @@
 #include "celldata.h"
 #include "sss_guiutility.h"
 
-using namespace std;
-
 class BuildCellControls   : public QSplitter
 {
     Q_OBJECT
@@ -152,13 +150,13 @@ private:
     QMap<int, int>  cellNumMap;
 
 
-    vector<SSS_CheckBox *> cbox_display;
-    vector<SSS_ComboBox *> cbox_sense;
-    vector<SSS_ComboBox *> cbox_bool;
+    std::vector<SSS_CheckBox *> cbox_display;
+    std::vector<SSS_ComboBox *> cbox_sense;
+    std::vector<SSS_ComboBox *> cbox_bool;
 
-    vector<QMetaObject::Connection> cboxDisplayConnection;
-    vector<QMetaObject::Connection> cboxSenseConnection;
-    vector<QMetaObject::Connection> cboxBoolConnection;
+    std::vector<QMetaObject::Connection> cboxDisplayConnection;
+    std::vector<QMetaObject::Connection> cboxSenseConnection;
+    std::vector<QMetaObject::Connection> cboxBoolConnection;
 
     QLabel *topLabel;
     QLabel *layoutTitle;

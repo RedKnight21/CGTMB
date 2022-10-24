@@ -923,7 +923,7 @@ int MasterData::getCellNumberIndex(int cell)
 }
 
 // ------------------------------------------------------------------------------------------------
-void MasterData::getInstanceDataColors(vector<double> *r, vector<double> *g, vector<double> *b)
+void MasterData::getInstanceDataColors(std::vector<double> *r, std::vector<double> *g, std::vector<double> *b)
 {
 
     for (auto n=0; n < instanceDataStringList.size(); ++n)

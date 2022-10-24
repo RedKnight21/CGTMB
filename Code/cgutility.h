@@ -12,9 +12,6 @@
 #include <QVector4D>
 #include "data_structs.h"
 
-using namespace std;
-
-
 void    rotateToMaster(XYZ2 &pt, double phi, double theta);
 void    rotateToGlobal(XYZ2 &pt, double phi, double theta);
 void    rotateToGlobal(QVector3D &pt, double phi, double theta);
@@ -31,7 +28,7 @@ double sign(double x, double y);
 
 int quart(int n, double *c, double *r4, int mm);
 void torus(int &nr4, double xxx, double yyy, double zzz, double *wt,
-           double *r4, vector<double> &bodyData);
+           double *r4, std::vector<double> &bodyData);
 
 /*
 class cgutility

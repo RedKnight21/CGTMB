@@ -34,7 +34,7 @@
 #include "data_structs.h"
 #include "vtkCell.h" // Needed for VTK_CELL_SIZE
 
-class VTKFILTERSSOURCES_EXPORT sssSuperCylinderSource : public vtkPolyDataAlgorithm
+class  sssSuperCylinderSource : public vtkPolyDataAlgorithm
 {
 public:
 

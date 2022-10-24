@@ -34,7 +34,7 @@ public:
     void setInstanceDisplay(int univ, int cell, int state);
     int  getInstanceDisplay(int univ, int cell);
     int  getCellNumberIndex(int cell);
-    void getInstanceDataColors(vector<double> *r, vector<double> *g, vector<double> *b);
+    void getInstanceDataColors(std::vector<double> *r, std::vector<double> *g, std::vector<double> *b);
     void getMeshModParameters(QString *name, double *params);
     int  getMeshUniverseNumber(QString *name);
     int  getInstanceCellNumberByIndex(int univ, int index);

@@ -29,7 +29,7 @@
 #include "vtkFloatArray.h"
 
 
-class VTKFILTERSSOURCES_EXPORT sssSuperCubeSource : public vtkPolyDataAlgorithm
+class  sssSuperCubeSource : public vtkPolyDataAlgorithm
 {
 public:
 

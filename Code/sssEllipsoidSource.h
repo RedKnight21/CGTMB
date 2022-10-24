@@ -39,7 +39,7 @@
 #include "vtkFiltersSourcesModule.h" // For export macro
 #include "vtkPolyDataAlgorithm.h"
 
-class VTKFILTERSSOURCES_EXPORT sssEllipsoidSource : public vtkPolyDataAlgorithm
+class  sssEllipsoidSource : public vtkPolyDataAlgorithm
 {
 public:
 

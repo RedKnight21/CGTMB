@@ -4,8 +4,6 @@
 #include <QVector>
 #include <QDebug>
 
-using namespace std;
-
 struct BodyButtonInfo
 {
     BodyButtonInfo()
@@ -36,7 +34,7 @@ struct BodyButtonInfo
         bodyTypeTags.clear();
 
         bodyTextLabels.clear();
-        vector<QString> tmp;
+        std::vector<QString> tmp;
         QString s;
 
         // NOTE: Order is important in bulding bodyTextLabels!
@@ -197,7 +195,7 @@ struct BodyButtonInfo
     QVector<QString> bodyTypeTags;
     QVector<QString> bodyButtonTips;
     QVector<QString> bodyButtonLabels;
-    vector< vector<QString> > bodyTextLabels;
+    std::vector< std::vector<QString> > bodyTextLabels;
 
     unsigned char skipTo[10] = {5, 8, 8, 8, 13, 9, 7, 13, 13, 10};
 };

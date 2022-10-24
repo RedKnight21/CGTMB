@@ -65,7 +65,7 @@ void matMult3(float a3x3[][3], float b3[], float result[])
     }
 }
 // ------------------------------------------------------------------------------------------------
-int searchBins(double &x, vector<double> &y, int aSize)
+int searchBins(double &x, std::vector<double> &y, int aSize)
 {
     int low, high, mid;
     low = 0; high = aSize-1;
@@ -191,23 +191,23 @@ void rotatePoint(double &x, double &y, double &z, double phi, double theta)
 // ------------------------------------------------------------------------------------------------
 // Function to remove leading and trailing white space from a given string
 
-string trim(string str)
+std::string trim(std::string str)
 {
-    const string WHITESPACE = " \n\r\t\f\v";
-    string s = str;
+    const std::string WHITESPACE = " \n\r\t\f\v";
+    std::string s = str;
 
     size_t p = s.find_first_not_of(WHITESPACE);
     s.erase(0, p);
 
     p = s.find_last_not_of(WHITESPACE);
-    if (string::npos != p)
+    if (std::string::npos != p)
         s.erase(p+1);
 
     return s;
 }
 
 // ------------------------------------------------------------------------------------------------
-double Max(vector<double> &x)
+double Max(std::vector<double> &x)
 {
   size_t num = x.size();
 
@@ -222,7 +222,7 @@ double Max(vector<double> &x)
 // ------------------------------------------------------------------------------------------------
 
 
-double Min(vector<double> &x)
+double Min(std::vector<double> &x)
 {
   size_t num = x.size();
 

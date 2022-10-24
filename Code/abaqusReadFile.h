@@ -8,7 +8,6 @@
 #include "gridcell.h"
 #include "cgutility.h"
 
-using namespace std;
 
 class ReadFileAbaqus : public UMObject
 {
@@ -22,7 +21,7 @@ public:
 
     private:
 
-        char    getPartNodes(QTextStream &in, int &countNode2, QString &line, vector<P_nodes> &pNode, QMap<int, int> &nodeMap);
+        char    getPartNodes(QTextStream &in, int &countNode2, QString &line, std::vector<P_nodes> &pNode, QMap<int, int> &nodeMap);
         void    endPartProcessing(ABaqus_part &tPart);
         void    getPartConnectivity(QTextStream &in, int &countNode2, QString &line, ABaqus_part &tPart);
         void    getInstanceInfo(QTextStream &in, QString lineIn);
@@ -47,18 +46,18 @@ public:
         void    processPartsInstances(QMap<QString, QString> &matElset);
         int     findElsetNumber(const QString stringIn, const QString name, size_t &pos);
         void    finalizeInstances();
-        void    reOrderPentSides(short eType, short nSides, int elAdjst, int element, int *sides, vector< vector<int> > &tetFaces);
-        void    reOrderHexSides(short eType, short nSides, int elAdjst, int element, int *sides, vector< vector<int> > &tetFaces);
+        void    reOrderPentSides(short eType, short nSides, int elAdjst, int element, int *sides, std::vector< std::vector<int> > &tetFaces);
+        void    reOrderHexSides(short eType, short nSides, int elAdjst, int element, int *sides, std::vector< std::vector<int> > &tetFaces);
         void    makeInstanceTrees();
         void    transferNodes2(ABaqus_part &abqPart, ABaqus_part &newPart);
 
         void    createSummaryFile();
-        short   getNNSides(int nSides, int element,  vector<int>  &NND, int *sides);
+        short   getNNSides(int nSides, int element,  std::vector<int>  &NND, int *sides);
         void    getFaceNodes(short eType, int tEl, int face, int *nextNodes);
         char    findNodeMatches(unsigned char neighborFace, int thisFace, int *nextNodes, int *thisNodes, int *nodes);
 
 
-        void data2File(QString name, vector<UM_node> &nodes,  vector<int> &vertices);
+        void data2File(QString name, std::vector<UM_node> &nodes,  std::vector<int> &vertices);
 
 
         int     lastEmbeeParticle;
@@ -77,24 +76,24 @@ public:
         QMap<int, int>      pNodeMap;
         QMap<int, int>      pConnectMap;
         QMap<QString, QString> matElsetMap;
-        vector<UM_nodes>    nodes2;
+        std::vector<UM_nodes>    nodes2;
 
-        vector<UM_t1element> t1elements2;
-        vector<UM_p1element> p1elements2;
-        vector<UM_h1element> h1elements2;
-        vector<UM_t2element> t2elements2;
-        vector<UM_p2element> p2elements2;
-        vector<UM_h2element> h2elements2;
+        std::vector<UM_t1element> t1elements2;
+        std::vector<UM_p1element> p1elements2;
+        std::vector<UM_h1element> h1elements2;
+        std::vector<UM_t2element> t2elements2;
+        std::vector<UM_p2element> p2elements2;
+        std::vector<UM_h2element> h2elements2;
 
-        vector<ABaqus_part> parts;
+        std::vector<ABaqus_part> parts;
 
-        vector<int>         matNos;
-        vector<double>      xCentroids;
-        vector<double>      yCentroids;
-        vector<double>      zCentroids;
-        vector<float>       volumes;
-        vector<float>       densities;
-        vector<QString>     partNames;
+        std::vector<int>         matNos;
+        std::vector<double>      xCentroids;
+        std::vector<double>      yCentroids;
+        std::vector<double>      zCentroids;
+        std::vector<float>       volumes;
+        std::vector<float>       densities;
+        std::vector<QString>     partNames;
         FILE *fp, *fp2;
 
         enum    {NONE,     ATTILAGMV,  MCNPEEOUT, ABAQUS  } fileType;

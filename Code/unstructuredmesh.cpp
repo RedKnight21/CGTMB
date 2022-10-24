@@ -25,7 +25,7 @@ void ABaqus_part::findSurfaceElements()
 
     int k;
     int e1, e2;
-    vector<int> t;
+    std::vector<int> t;
     t.push_back(0);
     t.push_back(0);
     t.push_back(0);
@@ -33,7 +33,7 @@ void ABaqus_part::findSurfaceElements()
     t.push_back(0);
     t.push_back(0);
 
-    vector<int> t2;
+    std::vector<int> t2;
     t2.push_back(0);
     t2.push_back(0);
 
@@ -82,7 +82,7 @@ void ABaqus_part::findSurfaceElements()
                 h1[h].faces[f][s] = h1[h].connect[k];
             }
             // Sort into ascending order.
-            sort(h1[h].faces[f], h1[h].faces[f]+4);
+            std::sort(h1[h].faces[f], h1[h].faces[f]+4);
         }
     }				// -- end i-loop over hex elements
 
@@ -102,7 +102,7 @@ void ABaqus_part::findSurfaceElements()
                 p1[p].faces[f][s] = p1[p].connect[k];
             }
             // Sort into ascending order.
-            sort(p1[p].faces[f], p1[p].faces[f]+3);
+            std::sort(p1[p].faces[f], p1[p].faces[f]+3);
         }
 
         for(int f=2; f<5; ++f)
@@ -114,7 +114,7 @@ void ABaqus_part::findSurfaceElements()
                 p1[p].faces[f][s] = p1[p].connect[k];
             }
             // Sort into ascending order.
-            sort(p1[p].faces[f], p1[p].faces[f]+4);
+            std::sort(p1[p].faces[f], p1[p].faces[f]+4);
         }
     }				// -- end i-loop over pent elements
 
@@ -134,13 +134,13 @@ void ABaqus_part::findSurfaceElements()
                 t1[h].faces[f][s] = t1[h].connect[k];
             }
             // Sort into ascending order.
-            sort(t1[h].faces[f], t1[h].faces[f]+3);
+            std::sort(t1[h].faces[f], t1[h].faces[f]+3);
         }
     }				// -- end i-loop over tet elements
 
     // ---------------------------------------------------------------
     // Setup scratch array for this part.
-    vector< vector<int> > scratch;
+    std::vector< std::vector<int> > scratch;
     for(int h=0; h < total; ++h)  scratch.push_back( t );
 
     // ---------------------------------------------------------------

@@ -78,15 +78,15 @@ private:
     QTableWidget *meshInstanceTable;
     QTableWidget *universeListTable;
 
-    vector<QColor>  instanceColors;
-    vector<QString> instanceCellNum;
-    vector<QString> instanceMtlNum;
+    std::vector<QColor>  instanceColors;
+    std::vector<QString> instanceCellNum;
+    std::vector<QString> instanceMtlNum;
 
     MasterData  *md;
 
     QVector<ReadFileAbaqus> *abaqusFiles;
 
-    vector<QMetaObject::Connection> instanceColorConnection;
+    std::vector<QMetaObject::Connection> instanceColorConnection;
 
     int currentAbaqusFileIndex;
     int zoneStart;

@@ -58,7 +58,7 @@
 
 class vtkIdList;
 
-class VTKFILTERSGENERAL_EXPORT sssBooleanOperationCheck : public vtkPolyDataAlgorithm
+class sssBooleanOperationCheck : public vtkPolyDataAlgorithm
 {
 public:
   /**
@@ -110,11 +110,6 @@ public:
 protected:
   sssBooleanOperationCheck();
   ~sssBooleanOperationCheck() override;
-
-  /**
-   * Labels triangles in mesh as part of the intersection or union surface.
-   */
-  void SortPolyData(vtkPolyData* input, vtkIdList* intersectionList, vtkIdList* unionList);
 
   int RequestData(vtkInformation*, vtkInformationVector**, vtkInformationVector*) override;
   int FillInputPortInformation(int, vtkInformation*) override;

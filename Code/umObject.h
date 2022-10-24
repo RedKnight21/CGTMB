@@ -33,20 +33,20 @@ class UM_instance
         double              translate[3];
         double              rotate[7];
         double              extents[6];
-        vector< double >    results;
-        vector< double >    maxResults;
-        vector< double >    minResults;
-        vector< int >       elMin;
-        vector< int >       elMax;
-        vector< int >       surfaceTriangles;
-        vector< UM_node >   surfaceNodes;
-        vector< UM_node >   surfaceNormals;
-        vector< UM_node >   nodes;
-        vector<UM_surface>  surface;
-        vector<LineSegment> outline;
-        vector<UM_h1element> h1elements;
-        vector<UM_p1element> p1elements;
-        vector<UM_t1element> t1elements;
+        std::vector< double >    results;
+        std::vector< double >    maxResults;
+        std::vector< double >    minResults;
+        std::vector< int >       elMin;
+        std::vector< int >       elMax;
+        std::vector< int >       surfaceTriangles;
+        std::vector< UM_node >   surfaceNodes;
+        std::vector< UM_node >   surfaceNormals;
+        std::vector< UM_node >   nodes;
+        std::vector<UM_surface>  surface;
+        std::vector<LineSegment> outline;
+        std::vector<UM_h1element> h1elements;
+        std::vector<UM_p1element> p1elements;
+        std::vector<UM_t1element> t1elements;
 
         Bbox                bounds;     // Bounding box for the instance.
         SkdTree             *tree;      // skdtree of elements in this instance.
@@ -76,81 +76,81 @@ class UM_instance
 class UMObject
 {
     public:
-    vector<UM_nodes>     nodes;
-    vector<UM_material>  materials;
-    vector<UM_instance>  instances;
-    vector<UM_t1element> t1elements;
-    vector<UM_p1element> p1elements;
-    vector<UM_h1element> h1elements;
-    vector<UM_t2element> t2elements;
-    vector<UM_p2element> p2elements;
-    vector<UM_h2element> h2elements;
-    vector<UM_histogramData> umoHistogram;
-    vector<EmbeeInfo>    edits;
-    vector<double>       resultMin;
-    vector<double>       resultMax;
-    vector<double>       elMaxResults;
-    vector<double>       elMinResults;
-    vector<QString>      resultNames;
-    vector<int>          matMap;
-    vector< int >        elMinObj;
-    vector< int >        elMaxObj;
-    vector<GLfloat>      allNodesPosition;
-    vector<GLfloat>      allNodesResult;
-    vector<GLfloat>      allNodesResultColor;
+    std::vector<UM_nodes>     nodes;
+    std::vector<UM_material>  materials;
+    std::vector<UM_instance>  instances;
+    std::vector<UM_t1element> t1elements;
+    std::vector<UM_p1element> p1elements;
+    std::vector<UM_h1element> h1elements;
+    std::vector<UM_t2element> t2elements;
+    std::vector<UM_p2element> p2elements;
+    std::vector<UM_h2element> h2elements;
+    std::vector<UM_histogramData> umoHistogram;
+    std::vector<EmbeeInfo>    edits;
+    std::vector<double>       resultMin;
+    std::vector<double>       resultMax;
+    std::vector<double>       elMaxResults;
+    std::vector<double>       elMinResults;
+    std::vector<QString>      resultNames;
+    std::vector<int>          matMap;
+    std::vector< int >        elMinObj;
+    std::vector< int >        elMaxObj;
+    std::vector<GLfloat>      allNodesPosition;
+    std::vector<GLfloat>      allNodesResult;
+    std::vector<GLfloat>      allNodesResultColor;
 
-    vector<GLfloat>     t1elNodesPosition;
-    vector<GLfloat>     t1elNodesColor;
-    vector<GLfloat>     t1elNodesNormal;
-    vector<GLfloat>     p1elNodesPosition3;
-    vector<GLfloat>     p1elNodesPosition4;
-    vector<GLfloat>     p1elNodesColor3;
-    vector<GLfloat>     p1elNodesNormal3;
-    vector<GLfloat>     p1elNodesColor4;
-    vector<GLfloat>     p1elNodesNormal4;
-    vector<GLfloat>     h1elNodesPosition;
-    vector<GLfloat>     h1elNodesColor;
-    vector<GLfloat>     h1elNodesNormal;
+    std::vector<GLfloat>     t1elNodesPosition;
+    std::vector<GLfloat>     t1elNodesColor;
+    std::vector<GLfloat>     t1elNodesNormal;
+    std::vector<GLfloat>     p1elNodesPosition3;
+    std::vector<GLfloat>     p1elNodesPosition4;
+    std::vector<GLfloat>     p1elNodesColor3;
+    std::vector<GLfloat>     p1elNodesNormal3;
+    std::vector<GLfloat>     p1elNodesColor4;
+    std::vector<GLfloat>     p1elNodesNormal4;
+    std::vector<GLfloat>     h1elNodesPosition;
+    std::vector<GLfloat>     h1elNodesColor;
+    std::vector<GLfloat>     h1elNodesNormal;
 
-    vector<GLfloat>     t2elNodesPosition;
-    vector<GLfloat>     t2elNodesColor;
-    vector<GLfloat>     t2elNodesNormal;
-    vector<GLfloat>     p2elNodesPosition3;
-    vector<GLfloat>     p2elNodesPosition4;
-    vector<GLfloat>     p2elNodesColor3;
-    vector<GLfloat>     p2elNodesNormal3;
-    vector<GLfloat>     p2elNodesColor4;
-    vector<GLfloat>     p2elNodesNormal4;
-    vector<GLfloat>     h2elNodesPosition;
-    vector<GLfloat>     h2elNodesColor;
-    vector<GLfloat>     h2elNodesNormal;
+    std::vector<GLfloat>     t2elNodesPosition;
+    std::vector<GLfloat>     t2elNodesColor;
+    std::vector<GLfloat>     t2elNodesNormal;
+    std::vector<GLfloat>     p2elNodesPosition3;
+    std::vector<GLfloat>     p2elNodesPosition4;
+    std::vector<GLfloat>     p2elNodesColor3;
+    std::vector<GLfloat>     p2elNodesNormal3;
+    std::vector<GLfloat>     p2elNodesColor4;
+    std::vector<GLfloat>     p2elNodesNormal4;
+    std::vector<GLfloat>     h2elNodesPosition;
+    std::vector<GLfloat>     h2elNodesColor;
+    std::vector<GLfloat>     h2elNodesNormal;
 
-    vector<GLuint>      t1elNodesIndices;
-    vector<GLuint>      t2elNodesIndices;
-    vector<GLuint>      h1elNodesIndices;
-    vector<GLuint>      h2elNodesIndices;
-    vector<GLuint>      p1elNodesIndices3;
-    vector<GLuint>      p2elNodesIndices3;
-    vector<GLuint>      p1elNodesIndices4;
-    vector<GLuint>      p2elNodesIndices4;
+    std::vector<GLuint>      t1elNodesIndices;
+    std::vector<GLuint>      t2elNodesIndices;
+    std::vector<GLuint>      h1elNodesIndices;
+    std::vector<GLuint>      h2elNodesIndices;
+    std::vector<GLuint>      p1elNodesIndices3;
+    std::vector<GLuint>      p2elNodesIndices3;
+    std::vector<GLuint>      p1elNodesIndices4;
+    std::vector<GLuint>      p2elNodesIndices4;
 
-    vector<GLfloat>     surfaceNodePosition3, surfaceNodePosition4;
-    vector<GLfloat>     surfaceNodeNormal3,   surfaceNodeNormal4;
-    vector<GLfloat>     surfaceNodeColor3,    surfaceNodeColor4;
+    std::vector<GLfloat>     surfaceNodePosition3, surfaceNodePosition4;
+    std::vector<GLfloat>     surfaceNodeNormal3,   surfaceNodeNormal4;
+    std::vector<GLfloat>     surfaceNodeColor3,    surfaceNodeColor4;
 
-    vector<GLuint>      surfaceIndices3,   surfaceIndices4;
-    vector<GLuint>      surfaceInstances3, surfaceInstances4;   // boundary indices for wireframe
+    std::vector<GLuint>      surfaceIndices3,   surfaceIndices4;
+    std::vector<GLuint>      surfaceInstances3, surfaceInstances4;   // boundary indices for wireframe
 
-    vector<QColor>      resultColors;
-    vector<double>      resultBins;
+    std::vector<QColor>      resultColors;
+    std::vector<double>      resultBins;
 
-    vector< vector<int> > tetFaces;
-    vector< vector<int> > pentFaces;
-    vector< vector<int> > hexFaces;
+    std::vector< std::vector<int> > tetFaces;
+    std::vector< std::vector<int> > pentFaces;
+    std::vector< std::vector<int> > hexFaces;
 
-    vector<AnnotatePoint>   annotatePoints;
-    vector<AnnotateLine>    annotateLines;
-    vector<AnnotateString>  annotateStrings;
+    std::vector<AnnotatePoint>   annotatePoints;
+    std::vector<AnnotateLine>    annotateLines;
+    std::vector<AnnotateString>  annotateStrings;
 
     double  maxElCentroid[3];  // maximum element location from histogram window
     double  minElCentroid[3];
@@ -201,8 +201,8 @@ class UMObject
     double  eval1stOrderPentResults(int whichPlot, IsoPoint &isoGrid);
     int     setupIsoGridPoint(float cox, float coy, float coz, IsoPoint &iso);
     void    setupIsoGridPoint(IsoPoint &iso, bool iflag, bool pFlag);
-    void    findLineOutvalues(int plotType, vector<IsoPoint> &lineOutData);
-    void    processSectorPointValues(Point &pt, vector<float> &results, int &elNo, bool &isValid, bool pFlag);
+    void    findLineOutvalues(int plotType, std::vector<IsoPoint> &lineOutData);
+    void    processSectorPointValues(Point &pt, std::vector<float> &results, int &elNo, bool &isValid, bool pFlag);
     void    findSectorPointValue(int pType, IsoPoint &isoData);
     void    findPointGHRetc(Point &pt, Point &ghr, int &elNo, int &gEl, unsigned char &eType, bool pFlag);
     int     findElementData(int elNo, int &inst, int &matNo, short &eType);
@@ -223,7 +223,7 @@ class UMObject
     void    setupSurfaceNodeColors(int intervalType, int whichPlot, int colorChoice, int contourType);
     void    setupSurfaceIndices(int colorChoice);
     void    clearVectors();
-    void    findAllPointValues(IsoPoint &thisData, vector<float> &results);
+    void    findAllPointValues(IsoPoint &thisData, std::vector<float> &results);
     //~UMObject();
 
     private:
@@ -235,10 +235,10 @@ class UMObject
 
         float   deltaX, deltaY, deltaZ;     // deltas for constructing the iso grid.
 
-        vector<float> isoXmesh;
-        vector<float> isoYmesh;
-        vector<float> isoZmesh;
-        vector<IsoPoint> isoGrid;
+        std::vector<float> isoXmesh;
+        std::vector<float> isoYmesh;
+        std::vector<float> isoZmesh;
+        std::vector<IsoPoint> isoGrid;
 
 //        FILE *fp, *fp2, *fp3, *fp4;
 };

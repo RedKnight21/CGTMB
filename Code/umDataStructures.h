@@ -4,10 +4,6 @@
 #include <QColor>
 #include <vector>
 
-using namespace std;
-
-
-
 struct Point
 {
     public:
@@ -61,9 +57,9 @@ struct AnnotateString
 
 struct AnnotateObject
 {
-    vector<AnnotatePoint>   annotatePoints;
-    vector<AnnotateLine>    annotateLines;
-    vector<AnnotateString>  annotateStrings;
+    std::vector<AnnotatePoint>   annotatePoints;
+    std::vector<AnnotateLine>    annotateLines;
+    std::vector<AnnotateString>  annotateStrings;
 
     bool persistence;
 };

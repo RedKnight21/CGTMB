@@ -158,14 +158,14 @@ void BuildCellWindow::handleZoneReadyToShow()
     int nBodies = (int) cgBodyBasics.size() + 1;
 
     int maxColors = 255;
-    vector<int> red(nBodies);
-    vector<int> gre(nBodies);
-    vector<int> blu(nBodies);
+    std::vector<int> red(nBodies);
+    std::vector<int> gre(nBodies);
+    std::vector<int> blu(nBodies);
     setRGBcolors(maxColors, nBodies, red, gre, blu);
 
-    vector<double> redF(nBodies);
-    vector<double> greF(nBodies);
-    vector<double> bluF(nBodies);
+    std::vector<double> redF(nBodies);
+    std::vector<double> greF(nBodies);
+    std::vector<double> bluF(nBodies);
 
     float norm = 1.0 / ((float) maxColors);
     for(int n=0; n<nBodies; ++n)

@@ -75,7 +75,7 @@
 #include "vtkFiltersGeneralModule.h" // For export macro
 #include "vtkPolyDataAlgorithm.h"
 
-class VTKFILTERSGENERAL_EXPORT sssIntersectionPolyDataCheck : public vtkPolyDataAlgorithm
+class  sssIntersectionPolyDataCheck : public vtkPolyDataAlgorithm
 {
 public:
   static sssIntersectionPolyDataCheck* New();

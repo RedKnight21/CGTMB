@@ -7,10 +7,6 @@
 #include <QString>
 #include <QColor>
 #include <umDataStructures.h>
-//#include "utilities.h"
-
-using namespace std;
-
 
 class LineSegment
 {
@@ -22,7 +18,7 @@ class LineSegment
 class UM_nodes
 {
     public:
-        vector<double>  results;
+        std::vector<double>  results;
         double x;
         double y;
         double z;
@@ -127,18 +123,18 @@ class ABaqus_part
         int elNumbers[6];           // # of elements for each element type
         //int nEls[6];
         int matNo;
-        vector<P_nodes> nodes;
-        vector<P_t1element> t1;
-        vector<P_p1element> p1;
-        vector<P_h1element> h1;
-        vector<P_t2element> t2;
-        vector<P_p2element> p2;
-        vector<P_h2element> h2;
+        std::vector<P_nodes> nodes;
+        std::vector<P_t1element> t1;
+        std::vector<P_p1element> p1;
+        std::vector<P_h1element> h1;
+        std::vector<P_t2element> t2;
+        std::vector<P_p2element> p2;
+        std::vector<P_h2element> h2;
 
         ///  Vector containing pairs of element number and face numbers that are on the parts surface.
-        vector< vector<int> > surfaceEls;
-        vector<int> surfaceTriangles;
-        vector<P_nodes> surfaceNodes;
+        std::vector< std::vector<int> > surfaceEls;
+        std::vector<int> surfaceTriangles;
+        std::vector<P_nodes> surfaceNodes;
 
         QString name;
         void clearIt();
@@ -179,7 +175,7 @@ class UM_element
         float   volume;
         double  centroid[3];
         double  sBoxes[6];
-        vector< double >  results;
+        std::vector< double >  results;
 };
 
 class UM_t1element : public UM_element
@@ -237,7 +233,7 @@ class EmbeeInfo
         double  emult;
         double  tvalue;
         double  evalue;
-        vector< double > results;
+        std::vector< double > results;
 };
 
 class UM_histogramData
@@ -256,9 +252,9 @@ class IsoObject
         bool            display;
         bool            reverseNormal;
         float           value;
-        vector<int>     instances;
+        std::vector<int>     instances;
         QColor          color;
-        vector<Point3>  triangles;
+        std::vector<Point3>  triangles;
 };
 
 class IsoPoint
@@ -280,7 +276,7 @@ class SectorPoint
     public:
         Point   xyz;
         int     element;
-        vector<float> results;
+        std::vector<float> results;
         bool    isValid;
 };
 
@@ -289,15 +285,15 @@ class SectorRow
     public:
         float length;
         int   nPoints;
-        vector<SectorPoint> rowVals;
+        std::vector<SectorPoint> rowVals;
 };
 
 class SectorPlane
 {
     public:
         int nRows;              // vertical points or number of rows
-        vector<int> rowLimits;
-        vector<SectorRow> rows;
+        std::vector<int> rowLimits;
+        std::vector<SectorRow> rows;
 };
 
 class SectorPart
@@ -307,7 +303,7 @@ class SectorPart
         int             azimuthal;
         int             polar;
         int             instNo;
-        vector<Point>   corners;
+        std::vector<Point>   corners;
         SectorPlane     sPlane;
 };
 
@@ -327,8 +323,8 @@ class SectorObject
         int                 azimuthal;
         int                 polar;
         int                 nPerCm;
-        vector<SectorPart>  part;
-        vector<Point>       corners;
+        std::vector<SectorPart>  part;
+        std::vector<Point>       corners;
         SectorPlane         sPlane;
 };
 
