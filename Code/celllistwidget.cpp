@@ -23,16 +23,6 @@ CellListWidget::~CellListWidget()
 {
    writeSettings();
 }
-// ----------------------------------------------------------------------------
-QSize CellListWidget::minimumSizeHint() const
-{
-    return QSize(300, 300);
-}
-// ----------------------------------------------------------------------------
-QSize CellListWidget::sizeHint() const
-{
-    return QSize(340, 700);
-}
 // ------------------------------------------------------------------------------------------------
 void CellListWidget::resetForProject()
 {
@@ -45,7 +35,6 @@ void CellListWidget::resetForProject()
         selectPB->setText("UNSELECT ALL ZONES");
     }
 }
-
 // ------------------------------------------------------------------------------------------------
 void CellListWidget::writeSettings()
 {
@@ -65,13 +54,13 @@ void CellListWidget::buildCellTable()
 {
     cellListTreeWidget = new QTableWidget(0, 3);
     cellListTreeWidget->setHorizontalHeaderLabels(QStringList() << tr("Cell #") << tr("Name")
-                                                                << tr("SHOW"));
+                                                                << tr("Show"));
 
 #ifdef USING_WINDOWS
-    cellListTreeWidget->setColumnWidth(0,  80);
+    cellListTreeWidget->setColumnWidth(0,  60);
     cellListTreeWidget->setColumnWidth(1, 170);
-    cellListTreeWidget->setColumnWidth(2,  90);
-    cellListTreeWidget->setMinimumWidth(350);
+    cellListTreeWidget->setColumnWidth(2,  70);
+    cellListTreeWidget->setMinimumWidth(360);
 #else
     cellListTreeWidget->setColumnWidth(0,  80);
     cellListTreeWidget->setColumnWidth(1, 150);
@@ -82,7 +71,6 @@ void CellListWidget::buildCellTable()
     // the overall size min height for the CellListWidget.
     cellListTreeWidget->setMinimumHeight(300);
     cellListTreeWidget->setToolTip("Table of cells for the 3-D model.");
-
 }
 // ----------------------------------------------------------------------------
 void CellListWidget::buildButtonLayout()
@@ -95,13 +83,11 @@ void CellListWidget::buildButtonLayout()
     buttonLayout->addWidget(selectPB);
 
     connect(selectPB, SIGNAL(clicked()), this, SLOT(handleSelectAll()));
-
 }
 // ------------------------------------------------------------------------------------------------
 void CellListWidget::handleSelectAll()
 {
     QString thisText;
-    //qDebug() << "PartChooserDialog::handleSelectAll:" << selectState;
 
     QString s1;
     if (md->projectType == MCNP) s1 = "CELLS";
@@ -227,7 +213,6 @@ void CellListWidget::clearCellTable()
 // ----------------------------------------------------------------------------
 void CellListWidget::updateTable()
 {
-    //qDebug() << "CellListWidget::updateTable";
     clearCellTable();
     populateCellTable();
 }

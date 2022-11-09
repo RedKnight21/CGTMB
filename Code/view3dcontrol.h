@@ -15,7 +15,8 @@ class View3DControl : public QWidget
 public:
    View3DControl(MasterData *mdIn, QVector<ReadFileAbaqus> *abqFiles, int *m3Dangles);
 
-   QSize sizeHint() const override;
+//   QSize sizeHint() const override;
+//   QSize minimumSizeHint() const override;
 
    void setBounds(Bounds b);
    void resetForProject();

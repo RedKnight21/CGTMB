@@ -11,6 +11,8 @@ find_package(VTK
     RenderingFreeType
     ViewsQt
     CommonDataModel
+    CommonTransforms
+    FiltersGeneral
     FiltersSources
     FiltersCore
     FiltersModeling
@@ -157,6 +159,32 @@ set(Headers
 set(QRCs
   Icons/icons.qrc
   Resources/resources.qrc)
+
+
+message(status "CMAKE_SYSTEM_NAME IS ${CMAKE_SYSTEM_NAME}")
+message(status "CMAKE_CXX_PLATFORM_ID IS ${CMAKE_CXX_PLATFORM_ID}")
+message(status "CMAKE_HOST_SYSTEM_NAME IS ${CMAKE_HOST_SYSTEM_NAME}")
+message(status "CMAKE_HOST_UNIX IS ${CMAKE_HOST_UNIX}")
+message(status "CMAKE_HOST_WIN32 IS ${CMAKE_HOST_WIN32}")
+
+
+if (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+    add_definitions(-DUSING_WINDOWS)
+endif()
+
+if (MINGW)
+    message(status ">>>>> MINGW")
+endif()
+if (WIN32)
+    message(status ">>>>> WIN32")
+endif()
+if (APPLE)
+    message(status ">>>>> APPLE")
+endif()
+if (UNIX)
+    message(status ">>>>> UNIX")
+endif()
+
 
 
 # Instruct CMake to run moc automatically when needed.

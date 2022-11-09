@@ -1,0 +1,58 @@
+
+QGroupBox {
+        font : bold 18px;
+}
+QDockWidget {
+        font : bold 18px;
+}
+QTableWidget {
+        font : bold 12px;
+}
+QHeaderView {
+        font : bold 13px;
+}
+QTabWidget {
+        font : bold 18px;
+}
+
+QLabel {
+        font : bold 18px;
+}
+
+
+QRadioButton {
+        font : 12px;
+}
+
+QPushButton {
+        font : 13px;
+        font : bold;
+}
+
+QSpinBox {
+        font : 12px;
+}
+
+QComboBox {
+        font : 14px;
+}
+
+QDial {
+        font : 12px;
+}
+
+QLineEdit {
+        font : 14px;
+}
+
+QCheckBox {
+        font : bold 12px;
+}
+
+QMenu {
+        font : 14px;
+}
+
+QMenuBar {
+        font : 14px;
+}

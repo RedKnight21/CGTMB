@@ -225,7 +225,7 @@ void MainWindow::onAddNew()
     modelVtkWindow = new BaseVtkWindow(&masterData);
     leftSplitter   = new QSplitter(Qt::Vertical);
     modelVtkWindow->makeVtkWidget(leftSplitter);
-    leftSplitter->setMinimumSize(800, 800);
+    leftSplitter->setMinimumSize(900, 900);
     setCentralWidget(leftSplitter);
 }
 // ------------------------------------------------------------------------------------------------
@@ -1148,6 +1148,7 @@ void MainWindow::handleAbaqusImport()
             int i = abaqus->readAbaqusFile(abaqusFileName, currentPath, errorString);
             if (i == -1)
             {
+               msg->setMinimumSize(500,500);
                 QMessageBox::information(this, tr("Unable to open file"), errorString);
             }
             else
@@ -1199,7 +1200,19 @@ void MainWindow::doMeshImports()
         int k = abaqus->readAbaqusFile(abaqusFileName, currentPath, errorString);
         if (k == -1)
         {
-            QMessageBox::information(this, tr("Unable to open file"), errorString);
+            //QMessageBox::information(this, tr("Unable to open file"), errorString);
+            printf("errorString: %s\n", errorString.toLatin1().data());
+            QString s1 = "Unable to open file: \n";
+            s1 += abaqusFileName;
+            s1 += errorString;
+            QMessageBox *msg = new QMessageBox(this);
+            msg->setIcon(QMessageBox::Information);
+            msg->setInformativeText(s1);
+            msg->setStandardButtons(QMessageBox::Ok);
+            msg->setDefaultButton(QMessageBox::Ok);
+            msg->setMinimumSize(500,500);
+            msg->show();
+            msg->exec();
         }
         else
             abaqusFiles.push_back(*abaqus);
@@ -1267,8 +1280,6 @@ void MainWindow::handlePtracGhostSignal(int sig)
 void MainWindow::makeToolBar()
 {
     // Create the icons.
-    this->setIconSize(QSize(22, 22));
-
     const QIcon icon5 = QIcon(QString::fromUtf8(":/Icons/camera-100.png"));
     cameraAction->setIcon(icon5);
 
@@ -1285,7 +1296,11 @@ void MainWindow::makeToolBar()
     toolBar = new QToolBar(this);
     toolBar->setObjectName(QStringLiteral("toolBar"));
     toolBar->setOrientation(Qt::Horizontal);
+#ifdef USING_WINDOWS
+    toolBar->setIconSize(QSize(35, 35));
+#else
     toolBar->setIconSize(QSize(50, 50));
+#endif
     this->addToolBar(Qt::TopToolBarArea, toolBar);
 
     // Adding actions to the toolbar adds the icons there.

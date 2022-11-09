@@ -21,7 +21,6 @@ public:
     explicit BuildCellWindow(MasterData *mdIn, License *inLic, QWidget *parent = nullptr);
     ~BuildCellWindow();
 
-    QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
 
     void    closeFileOperations();

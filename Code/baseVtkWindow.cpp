@@ -124,8 +124,8 @@ void BaseVtkWindow::makeVtkWidget(QSplitter *splitter)
 
     sizePolicy.setHeightForWidth(qvtkWidget->sizePolicy().hasHeightForWidth());
     qvtkWidget->setSizePolicy(sizePolicy);
-    qvtkWidget->setMinimumSize(QSize(200, 200));
-    qvtkWidget->setMaximumSize(QSize(1000, 1000));
+//    qvtkWidget->setMinimumSize(QSize(700, 700));
+    qvtkWidget->setMaximumSize(QSize(2000, 2000));
 
     // VTK/Qt wedded
     qvtkWidget->setRenderWindow(renderWindow);

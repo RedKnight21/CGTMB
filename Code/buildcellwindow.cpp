@@ -19,6 +19,8 @@ BuildCellWindow::BuildCellWindow(MasterData *mdIn, License *inLic, QWidget *pare
     leftSplitter  = new QSplitter(Qt::Vertical);
     cellVtkWindow = new BaseVtkWindow(md);
     cellVtkWindow->makeVtkWidget(leftSplitter);
+    leftSplitter->setMaximumSize(QSize(1500, 1500));
+    leftSplitter->setMinimumSize(QSize(1000, 1000));
 
 //    leftSplitter->addWidget(bodyControlsWidget);
 //    leftSplitter->addWidget(bottomLeftWidget);
@@ -96,16 +98,11 @@ BuildCellWindow::~BuildCellWindow()
 //    }
 }
 // ----------------------------------------------------------------------------
-QSize BuildCellWindow::minimumSizeHint() const
-{
-    return QSize(500, 500);
-}
-// ----------------------------------------------------------------------------
 
 QSize BuildCellWindow::sizeHint() const
 {
 #ifdef USING_WINDOWS
-    return QSize(1500, 500);
+    return QSize(2200, 1000);
 #else
     return QSize(2000, 1000);
 #endif
@@ -415,8 +412,6 @@ void BuildCellWindow::makeActions()
 void BuildCellWindow::makeToolBar()
 {
     // Create the icons.
-    this->setIconSize(QSize(22, 22));
-
     const QIcon icon = QIcon(QString::fromUtf8(":/Icons/help.png"));
     helpAction->setIcon(icon);
 
@@ -448,7 +443,11 @@ void BuildCellWindow::makeToolBar()
     toolBar = new QToolBar(this);
     toolBar->setObjectName(QStringLiteral("toolBar"));
     toolBar->setOrientation(Qt::Horizontal);
+#ifdef USING_WINDOWS
+    toolBar->setIconSize(QSize(35, 35));
+#else
     toolBar->setIconSize(QSize(50, 50));
+#endif
     this->addToolBar(Qt::TopToolBarArea, toolBar);
 
     // Adding actions to the toolbar adds the icons there.

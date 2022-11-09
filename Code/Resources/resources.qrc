@@ -4,5 +4,6 @@
     <!-- Typical file operations. -->
     <file>xgen_data.txt</file>
     <file>elements.txt</file>
+    <file>cgtmb_win.qss</file>
   </qresource>
 </RCC>

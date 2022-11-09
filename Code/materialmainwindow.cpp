@@ -735,7 +735,7 @@ void MaterialMainWindow::buildWorkingListWidget()
     workingTreeView->setColumnWidth(1, 70);
 #endif
 
-    workingTreeView->setMinimumSize(100, 170);
+    workingTreeView->setMinimumSize(300, 170);
     workingTreeView->sortByColumn(0, Qt::AscendingOrder);
     workingTreeView->setSortingEnabled(true);
     workingTreeView->setContextMenuPolicy(Qt::CustomContextMenu);

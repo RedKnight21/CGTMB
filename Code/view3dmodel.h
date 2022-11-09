@@ -27,7 +27,7 @@ public:
 
     ~View3DModel();
 
-    QSize minimumSizeHint() const override;
+//    QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
     void writeSettings();
     void resetForProject();

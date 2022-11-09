@@ -65,8 +65,8 @@ void View3DModel::createDockWidget()
     dock = new QDockWidget((s1), this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     dock->setWidget(cellListWidget);
-
     dock->setObjectName((s1));
+
     addDockWidget(Qt::LeftDockWidgetArea, dock);
     cellZoneAction = dock->toggleViewAction();
 
@@ -98,19 +98,15 @@ void View3DModel::contextMenuEvent(QContextMenuEvent *event)
     menu.exec(event->globalPos());
 }
 // ----------------------------------------------------------------------------
-QSize View3DModel::minimumSizeHint() const
-{
-    return QSize(1000, 700);
-}
-// ----------------------------------------------------------------------------
 QSize View3DModel::sizeHint() const
 {
 #ifdef USING_WINDOWS
-    return QSize(1000, 600);
+    return QSize(1500, 1000);
 #else
     return QSize(1000, 700);
 #endif
 }
+
 // ------------------------------------------------------------------------------------------------
 void View3DModel::writeSettings()
 {
@@ -118,7 +114,9 @@ void View3DModel::writeSettings()
     settings.setValue("view3DModelWindow/size",       this->size());
     settings.setValue("view3DModelWindow/Properties", this->saveState());
     settings.setValue("view3DModelWindow/Geometry",   this->saveGeometry());
-    //qDebug() << "View3DModel :: size: " << this->size();
+
+    meshListWidget->writeSettings();
+    cellListWidget->writeSettings();
 }
 // ------------------------------------------------------------------------------------------------
 void View3DModel::readSettings()
@@ -189,7 +187,6 @@ void View3DModel::buildMessageWindow()
     messageLayout->addLayout(clearLayout);
 
     messageWindow = new QWidget;
-    messageWindow->setMinimumSize(300, 200);
     messageWindow->setLayout(messageLayout);
 }
 // ------------------------------------------------------------------------------------------------
@@ -201,7 +198,6 @@ void View3DModel::handleClearTextEdit()
 // ------------------------------------------------------------------------------------------------
 void View3DModel::handleUpdate()
 {
-//    qDebug() << "View3DModel::handleUpdate";
     md->makeCellList(masterCellList);
     md->makeBodyBasics(bodyBasics);
 
@@ -211,7 +207,6 @@ void View3DModel::handleUpdate()
 // ------------------------------------------------------------------------------------------------
 void View3DModel::handleShow()
 {
-//    qDebug() << "View3DModel::handleShow";
     emit modelUpdate();
 }
 // ------------------------------------------------------------------------------------------------

@@ -29,7 +29,22 @@ int main(int argc, char** argv)
 	// QT Stuff
 	QApplication app(argc, argv);
 
+#ifdef USING_WINDOWS
+
+    QApplication::setStyle("Windows");
+
+#else
+
     QApplication::setStyle("motif");
+
+#endif
+
+    // -----------------------
+    // -- Get the style sheet.
+    QFile File(":/Resources/cgtmb_win.qss");
+    File.open(QFile::ReadOnly);
+    QString StyleSheet = QLatin1String(File.readAll());
+    File.close();
 
 	qInitResources_icons();
 
@@ -42,6 +57,7 @@ int main(int argc, char** argv)
     else
         mainWindow.showMaximized();
 
+    app.setStyleSheet(StyleSheet);
 
 	return app.exec();
 }

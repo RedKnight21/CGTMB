@@ -59,16 +59,11 @@ void EmbeddedMeshBuilder::doClose()
     close();
 }
 // ----------------------------------------------------------------------------
-QSize EmbeddedMeshBuilder::minimumSizeHint() const
-{
-    return QSize(200, 200);
-}
-// ----------------------------------------------------------------------------
 
 QSize EmbeddedMeshBuilder::sizeHint() const
 {
 #ifdef USING_WINDOWS
-    return QSize(890, 500);
+    return QSize(1050, 600);
 #else
     return QSize(900, 500);
 #endif

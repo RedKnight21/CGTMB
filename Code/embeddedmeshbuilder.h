@@ -17,7 +17,6 @@ public:
     EmbeddedMeshBuilder(MasterData *inMd, QVector<ReadFileAbaqus> *abqFiles, QWidget *parent = nullptr);
     ~EmbeddedMeshBuilder();
 
-    QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
 
     void updateEmbeddedMesh();

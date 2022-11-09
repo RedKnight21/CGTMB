@@ -23,16 +23,6 @@ MeshListWidget::~MeshListWidget()
 {
    writeSettings();
 }
-// ----------------------------------------------------------------------------
-QSize MeshListWidget::minimumSizeHint() const
-{
-    return QSize(350, 300);
-}
-// ----------------------------------------------------------------------------
-QSize MeshListWidget::sizeHint() const
-{
-    return QSize(350, 600);
-}
 // ------------------------------------------------------------------------------------------------
 void MeshListWidget::writeSettings()
 {
@@ -70,13 +60,13 @@ void MeshListWidget::buildCellTable()
     cellListTreeWidget = new QTableWidget(0, 4);
     cellListTreeWidget->setHorizontalHeaderLabels(QStringList() << tr("Univ. #")
                                                                 << s1 << tr("Name")
-                                                                << tr("SHOW"));
+                                                                << tr("Show"));
 #ifdef USING_WINDOWS
-    cellListTreeWidget->setColumnWidth(0,  90);
-    cellListTreeWidget->setColumnWidth(1,  90);
+    cellListTreeWidget->setColumnWidth(0,  60);
+    cellListTreeWidget->setColumnWidth(1,  60);
     cellListTreeWidget->setColumnWidth(2, 170);
-    cellListTreeWidget->setColumnWidth(3,  90);
-    cellListTreeWidget->setMinimumWidth(450);
+    cellListTreeWidget->setColumnWidth(3,  70);
+    cellListTreeWidget->setMinimumWidth(400);
 #else
     cellListTreeWidget->setColumnWidth(0,  60);
     cellListTreeWidget->setColumnWidth(1,  70);

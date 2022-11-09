@@ -525,9 +525,9 @@ void MeshUniverseBuild::buildRightSideLayout()
     universeListTable->setHorizontalHeaderLabels(QStringList() << tr("No.") << tr("Name"));
 
 #ifdef USING_WINDOWS
-    universeListTable->setColumnWidth(0,  80);
+    universeListTable->setColumnWidth(0,  60);
     universeListTable->setColumnWidth(1, 170);
-    universeListTable->setMinimumWidth(300);
+    universeListTable->setMinimumWidth(240);
 #else
     universeListTable->setColumnWidth(0,  50);
     universeListTable->setColumnWidth(1, 150);

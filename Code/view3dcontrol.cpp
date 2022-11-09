@@ -23,13 +23,20 @@ View3DControl::View3DControl(MasterData *mdIn, QVector<ReadFileAbaqus> *abqFiles
     setLayout(topLayout);
 
     setupSlots();
+    this->setMaximumWidth(700);
 }
-
+/*
 // ----------------------------------------------------------------------------
 QSize View3DControl::sizeHint() const
 {
-    return QSize(500, 500);
+    return QSize(600, 700);
 }
+// ----------------------------------------------------------------------------
+QSize View3DControl::minimumSizeHint() const
+{
+    return QSize(600, 700);
+}
+*/
 // ----------------------------------------------------------------------------
 void View3DControl::resetForProject()
 {

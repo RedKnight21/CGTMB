@@ -8,9 +8,9 @@ CELL-COMMENTS : 2
 MTL-COMMENTS  : 2
 RULER         : 2
 LINE-LENGTH   : 55
-XSDIRFILE     : nix : /home/rmartz/Special/TVD1/TestInputs/xsdir_mcnp6.2
+XSDIRFILE     : win : 
 CUSTOM ZAID ID: 0
-LAST UNIVERSE : 0
+LAST UNIVERSE : 2
 BODIES        : 5
 1;RPP;Left backgorund rpp;Xmin;-3.5;Xmax;0;Ymin;-1.5;Ymax;1.5;Zmin;-3;Zmax;3;
 2;RPP;Right background rpp;Xmin;0;Xmax;2.5;Ymin;-2;Ymax;2;Zmin;-3;Zmax;3;
@@ -28,14 +28,19 @@ MATERIALS    : 2
 2;Aluminum;2.7;115;210;22;255;1;13027.86c;1.0;
 CUSTOM ZAID LIST: 0
 ABAQUS FILE LIST: 2
-ABAQUS FILE     : nix :   /home/rmartz/Special/TVD1/TestInputs/stacked_cylinders1.abqinp
-ABAQUS FILE     : nix :   /home/rmartz/Special/TVD1/TestInputs/stacked_spheres1.abqinp
-INSTANCE DATA LIST: 5
+ABAQUS FILE     : win : D:/msys64/home/roger/CGTMB/TestInput/stacked_cylinders1.abqinp
+ABAQUS FILE     : win : D:/msys64/home/roger/CGTMB/TestInput/stacked_spheres1.abqinp
+INSTANCE DATA LIST: 10
 2;121;2;1.0;1.0;top_sphere;215;25;28;255;1;
 2;122;1;1.0;1.0;middle_sphere;255;255;191;255;1;
 2;123;2;1.0;1.0;bottom_sphere;44;123;182;255;1;
 1;111;2;1.0;1.0;top_cylinder;215;25;28;255;1;
 1;112;1;1.0;1.0;bottom_cylinder;138;226;52;255;1;
+1;1;1;1.0;1.0;top_cylinder;
+1;2;0;1.0;1.0;bottom_cylinder;
+2;1;1;1.0;1.0;top_sphere;
+2;2;0;1.0;1.0;middle_sphere;
+2;3;1;1.0;1.0;bottom_sphere;
 UNIVERSE DATA LIST: 2
 1;110;102;101;Left - cylinders;1.0;-1.75;0.0;0.0;0.00;0.00;stacked_cylinders1.abqinp;
 2;120;104;103;Right - spheres;1.0;1.25;0;0;0.00;0.00;stacked_spheres1.abqinp;

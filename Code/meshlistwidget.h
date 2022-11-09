@@ -18,10 +18,8 @@ public:
 
     void updateTable();
 
-    QSize minimumSizeHint() const override;
-    QSize sizeHint() const override;
-
     void resetForProject();
+    void    writeSettings();
 
 private slots:
 
@@ -36,7 +34,6 @@ private:
     void    populateCellTable();
     void    clearCellTable();
     void    readSettings();
-    void    writeSettings();
 
     QTableWidget        *cellListTreeWidget;
     QPushButton         *selectPB;
