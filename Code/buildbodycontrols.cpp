@@ -533,7 +533,7 @@ void BuildBodyControls::buildBodyTreeViewLayout()
     bodyTreeView->setColumnWidth(1, 120);
 #else
     bodyTreeView->setColumnWidth(0, 70);
-    bodyTreeView->setColumnWidth(1, 70);
+    bodyTreeView->setColumnWidth(1, 80);
 #endif
 
     bodyTreeView->sortByColumn(0, Qt::AscendingOrder);

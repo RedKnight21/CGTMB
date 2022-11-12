@@ -62,13 +62,11 @@ void CellListWidget::buildCellTable()
     cellListTreeWidget->setColumnWidth(2,  70);
     cellListTreeWidget->setMinimumWidth(360);
 #else
-    cellListTreeWidget->setColumnWidth(0,  80);
-    cellListTreeWidget->setColumnWidth(1, 150);
+    cellListTreeWidget->setColumnWidth(0,  60);
+    cellListTreeWidget->setColumnWidth(1, 170);
     cellListTreeWidget->setColumnWidth(2,  70);
-    cellListTreeWidget->setMinimumWidth(300);
+    cellListTreeWidget->setMinimumWidth(320);
 #endif
-    // Don't make the following height more than 50% larger than
-    // the overall size min height for the CellListWidget.
     cellListTreeWidget->setMinimumHeight(300);
     cellListTreeWidget->setToolTip("Table of cells for the 3-D model.");
 }

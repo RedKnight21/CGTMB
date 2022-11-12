@@ -1299,7 +1299,7 @@ void MainWindow::makeToolBar()
 #ifdef USING_WINDOWS
     toolBar->setIconSize(QSize(35, 35));
 #else
-    toolBar->setIconSize(QSize(50, 50));
+    toolBar->setIconSize(QSize(35, 35));
 #endif
     this->addToolBar(Qt::TopToolBarArea, toolBar);
 

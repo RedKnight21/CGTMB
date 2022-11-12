@@ -531,7 +531,7 @@ void MeshUniverseBuild::buildRightSideLayout()
 #else
     universeListTable->setColumnWidth(0,  50);
     universeListTable->setColumnWidth(1, 150);
-    universeListTable->setMinimumWidth(220);
+    universeListTable->setMinimumWidth(240);
 #endif
 
     universeListTable->setMinimumHeight(300);

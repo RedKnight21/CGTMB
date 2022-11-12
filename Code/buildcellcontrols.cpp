@@ -1119,7 +1119,7 @@ void BuildCellControls::buildCellTreeLayout()
     cellTreeView->setColumnWidth(1, 120);
     cellTreeView->setColumnWidth(2, 100);
 #else
-    cellTreeView->setColumnWidth(0, 70);
+    cellTreeView->setColumnWidth(0, 80);
     cellTreeView->setColumnWidth(1, 90);
     cellTreeView->setColumnWidth(2, 90);
 #endif

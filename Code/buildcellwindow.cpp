@@ -19,8 +19,14 @@ BuildCellWindow::BuildCellWindow(MasterData *mdIn, License *inLic, QWidget *pare
     leftSplitter  = new QSplitter(Qt::Vertical);
     cellVtkWindow = new BaseVtkWindow(md);
     cellVtkWindow->makeVtkWidget(leftSplitter);
+#ifdef USING_WINDOWS
+
     leftSplitter->setMaximumSize(QSize(1500, 1500));
     leftSplitter->setMinimumSize(QSize(1000, 1000));
+#else
+    leftSplitter->setMaximumSize(QSize(1500, 1500));
+    leftSplitter->setMinimumSize(QSize( 800,  800));
+#endif
 
 //    leftSplitter->addWidget(bodyControlsWidget);
 //    leftSplitter->addWidget(bottomLeftWidget);
@@ -446,7 +452,7 @@ void BuildCellWindow::makeToolBar()
 #ifdef USING_WINDOWS
     toolBar->setIconSize(QSize(35, 35));
 #else
-    toolBar->setIconSize(QSize(50, 50));
+    toolBar->setIconSize(QSize(35, 35));
 #endif
     this->addToolBar(Qt::TopToolBarArea, toolBar);
 

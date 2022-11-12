@@ -47,6 +47,10 @@ if (NOT TARGET Qt5::Widgets OR NOT TARGET Qt5::Gui)
     return ()
 endif ()
 
+
+
+include_directories(/home/rmartz/Special/TVD1/Ptrac/SSS_ptrac)
+
 # Set your files and resources here
 set(Sources
     baseVtkWindow.cpp
@@ -202,4 +206,6 @@ target_link_libraries(CGTMB
   PRIVATE
     ${VTK_LIBRARIES}
     Qt5::Gui
-    Qt5::Widgets)
+    Qt5::Widgets
+    /home/rmartz/Special/TVD1/Ptrac/SSS_ptrac/Build/libptrac.so
+    )

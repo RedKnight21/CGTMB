@@ -38,11 +38,10 @@ void ProjectSettings::doCancel()
     emit projectSettingsUpdated(0);
     close();
 }
-
 // ----------------------------------------------------------------------------
 QSize ProjectSettings::sizeHint() const
 {
-    return QSize(500, 300);
+    return QSize(550, 225);
 }
 // ----------------------------------------------------------------------------
 void ProjectSettings::writeSettings()

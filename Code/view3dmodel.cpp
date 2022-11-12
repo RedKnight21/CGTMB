@@ -103,7 +103,7 @@ QSize View3DModel::sizeHint() const
 #ifdef USING_WINDOWS
     return QSize(1500, 1000);
 #else
-    return QSize(1000, 700);
+    return QSize(1200, 700);
 #endif
 }
 
@@ -163,7 +163,7 @@ void View3DModel::buildMessageWindow()
 {
     messageTextWindow = new QTextEdit;
     messageTextWindow->setReadOnly(false);
-    messageTextWindow->setMinimumSize(300, 100);
+    messageTextWindow->setMinimumSize(400, 100);
 
 #ifdef USING_WINDOWS
     int fontSize       = 11;
